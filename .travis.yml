@@ -4,7 +4,6 @@ jdk:
     - openjdk7
     - openjdk6
     - oraclejdk7
-    - oraclejdk6
 
 before_install: 'mvn -version'
 
