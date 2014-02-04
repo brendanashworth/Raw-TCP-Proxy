@@ -67,8 +67,10 @@ public class Registry implements Runnable {
                 this.serverOut.write(request, 0, bytesRead);
                 this.serverOut.flush();
 
-                String data = new String(request, "UTF-8");
-                proxy.debug("C -> S: "+data);
+                // It may seem obscure to surround it by and if loop, but otherwise we are forced to create a new String object; the parsing to UTF-8 causes some speed issues.
+                if(this.getProxy().getDebug()) {
+                    this.getProxy().debug("C -> S: " + new String(request, "UTF-8"));
+                }
             }
 
             // Client disconnected.

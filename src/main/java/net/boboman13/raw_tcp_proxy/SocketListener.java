@@ -34,8 +34,11 @@ public class SocketListener implements Runnable {
                 registry.clientOut.write(request, 0, bytesRead);
                 registry.clientOut.flush();
 
-                String data = new String(request, "UTF-8");
-                registry.getProxy().debug("S -> C: " + data);
+                // It may seem obscure to surround it by and if loop, but otherwise we are forced to create a new String object; the parsing to UTF-8 causes some speed issues.
+                if(registry.getProxy().getDebug()) {
+                    registry.getProxy().debug("S -> C: " + new String(request, "UTF-8"));
+                }
+
             }
 
             // The server socket ended!
