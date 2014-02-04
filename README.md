@@ -17,7 +17,7 @@ This will create the .jar file for running the proxy. Lets assume its named prox
 $ java -jar proxy.jar -o 198.51.100.2 -p 80 -l 80
 ```
 
-Lets take a look at this for a second;
+Lets take a look at this for a second.
 
 `-o` or `--out` sets the output IP. All packets received (0.0.0.0 is default) will be sent to this IP. All packets from this IP will be sent to their respective connections to the proxy. Defaults to 127.0.0.1.
 
