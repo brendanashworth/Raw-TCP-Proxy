@@ -3,6 +3,7 @@ package net.boboman13.raw_tcp_proxy;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
@@ -28,22 +29,35 @@ public class Registry implements Runnable {
     /**
      * Creates a Registry instance; Registry represents a client.
      *
-     * @param outSocket The socket to the server.
+     * @param proxy The Proxy instance.
      * @param inSocket The socket to the client.
      * @throws IOException Upon getting an exception, the program will throw an exception.
      */
-    public Registry(Proxy proxy, Socket outSocket, Socket inSocket) throws IOException {
+    public Registry(Proxy proxy, Socket inSocket) {
         this.proxy = proxy;
 
-        this.outsocket = outSocket;
-        this.insocket = inSocket;
+        try {
+            this.outsocket = new Socket(proxy.getHost(), proxy.getPort());
+            this.insocket = inSocket;
 
-        // Initiate the in and out fields.
-        this.clientIn = this.insocket.getInputStream();
-        this.clientOut = this.insocket.getOutputStream();
+            // Initiate the in and out fields.
+            this.clientIn = this.insocket.getInputStream();
+            this.clientOut = this.insocket.getOutputStream();
 
-        this.serverIn = this.outsocket.getInputStream();
-        this.serverOut = this.outsocket.getOutputStream();
+            this.serverIn = this.outsocket.getInputStream();
+            this.serverOut = this.outsocket.getOutputStream();
+
+        } catch (ConnectException ex) {
+            proxy.debug("Received connection error while creating Socket to outsource.");
+            // do nothing, kill process.
+            this.kill();
+            return;
+        } catch (IOException ex) {
+            // do nothing, kill process.
+            this.kill();
+            return;
+        }
+
 
         // Start up the SocketListener.
         this.socketListener = new SocketListener(this);

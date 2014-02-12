@@ -29,7 +29,7 @@ public class ProxyServer {
 
                 this.proxy.debug("Accepted new client: "+client.getInetAddress().getHostAddress());
 
-                Registry registry = new Registry(this.proxy, new Socket(this.proxy.getHost(), this.proxy.getPort()), client);
+                Registry registry = new Registry(this.proxy, client);
 
                 // Start the thread.
                 Thread thread = new Thread(registry);
