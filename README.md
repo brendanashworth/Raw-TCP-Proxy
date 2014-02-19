@@ -14,7 +14,7 @@ $ mvn package
 This will create the .jar file for running the proxy. Lets assume its named proxy.jar. For our purposes, we will be configuring a web server proxy, pushing all connections to `0.0.0.0:80` to `198.51.100.2:80`.
 
 ```bash
-$ java -jar proxy.jar -o 198.51.100.2 -p 80 -l 80
+$ java -jar proxy.jar -h 127.0.0.1 -o 198.51.100.2 -p 80 -l 80
 ```
 
 Lets take a look at this for a second.
@@ -26,6 +26,8 @@ Lets take a look at this for a second.
 `-l` or `--listen` sets the listening port. All packets sent to 0.0.0.0:{port} will be recognized by the proxy. Defaults to 1357.
 
 `-d` or `--debug` sets the proxy to run under debug mode. All packets and registered connections will be printed to the console if this is true. Defaults to false.
+
+`-h` or `--host` sets the listening IP. When this is set, only packets received to this IP (can also be a hostname) will be registered into the proxy. This defaults to 0.0.0.0, or all available IPs.
 
 ### Contributing
 Simply fork the repository, change the local repository, then send a pull request in with the changes. The pull request will then be reviewed by the project manager/s and may or may not be accepted.
