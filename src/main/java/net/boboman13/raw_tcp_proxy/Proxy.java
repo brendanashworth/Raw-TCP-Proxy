@@ -9,6 +9,7 @@ public class Proxy {
     private ProxyServer proxyServer;
 
     private String host;
+    private String out;
     private int port;
     private int listenPort;
 
@@ -22,7 +23,7 @@ public class Proxy {
     }
 
     public void start() {
-        System.out.println("Starting Raw TCP Proxy on *:"+listenPort+". Will forward to "+host+":"+port+".");
+        System.out.println("Starting Raw TCP Proxy on "+host+":"+listenPort+". Will forward to "+out+":"+port+".");
 
         this.registryManager = new RegistryManager(this);
         this.proxyServer = new ProxyServer(this);
@@ -34,7 +35,7 @@ public class Proxy {
      * @param host
      */
     public void setHost(String host) {
-        this.host = host;
+        this.out = host;
     }
 
     /**
@@ -43,7 +44,7 @@ public class Proxy {
      * @return host
      */
     public String getHost() {
-        return this.host;
+        return this.out;
     }
 
     /**
@@ -62,6 +63,24 @@ public class Proxy {
      */
     public int getPort() {
         return this.port;
+    }
+
+    /**
+     * Set the listening IP for the proxy.
+     *
+     * @param listeningIP
+     */
+    public void setListeningIP(String listeningIP) {
+        this.host = listeningIP;
+    }
+
+    /**
+     * Get the listening IP of the proxy.
+     *
+     * @return
+     */
+    public String getListeningIP() {
+        return this.host;
     }
 
     /**

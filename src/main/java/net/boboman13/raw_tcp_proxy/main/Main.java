@@ -8,16 +8,17 @@ import net.boboman13.raw_tcp_proxy.Proxy;
 public class Main {
 
     public static void main(String[] args) {
-        String host = "127.0.0.1";
+        String out = "127.0.0.1";
+        String listenIP = "0.0.0.0";
         int port = 1358;
         int listenPort = 1357;
         boolean debug = false;
 
         // Parse through arguments.
         for(int i = 0; i < args.length; i++) {
-            // Look for host (-o, --out)
+            // Look for out (-o, --out)
             if(args[i].equalsIgnoreCase("-o") || args[i].equalsIgnoreCase("--out")) {
-                host = args[i + 1];
+                out = args[i + 1];
             }
             // Look for port (-p, --port)
             if(args[i].equalsIgnoreCase("-p") || args[i].equalsIgnoreCase("--port")) {
@@ -26,6 +27,10 @@ public class Main {
             // Look for listening port (-l, --listen)
             if(args[i].equalsIgnoreCase("-l") || args[i].equalsIgnoreCase("--listen")) {
                 listenPort = Integer.parseInt(args[i + 1]);
+            }
+            // look for host IP (-h, --host)
+            if(args[i].equalsIgnoreCase("-h") || args[i].equalsIgnoreCase("--host")) {
+                listenIP = args[i + 1];
             }
             // Look for debug (-d, --debug)
             if(args[i].equalsIgnoreCase("-d") || args[i].equalsIgnoreCase("--debug")) {
@@ -36,8 +41,9 @@ public class Main {
 
         // Initiate the Proxy
         Proxy proxy = new Proxy();
-        proxy.setHost(host);
+        proxy.setHost(out);
         proxy.setPort(port);
+        proxy.setListeningIP(listenIP);
         proxy.setListeningPort(listenPort);
         proxy.setDebug(debug);
 

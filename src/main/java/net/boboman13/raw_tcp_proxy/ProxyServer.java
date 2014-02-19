@@ -1,6 +1,7 @@
 package net.boboman13.raw_tcp_proxy;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -21,7 +22,8 @@ public class ProxyServer {
         this.proxy = proxy;
 
         try {
-            server = new ServerSocket(proxy.getListeningPort());
+            InetAddress address = InetAddress.getByName(proxy.getListeningIP());
+            server = new ServerSocket(proxy.getListeningPort(), 10, address);
 
             // Keep listening for new clients!
             while(true) {
