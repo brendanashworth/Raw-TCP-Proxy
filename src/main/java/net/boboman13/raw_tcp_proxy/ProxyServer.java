@@ -22,6 +22,7 @@ public class ProxyServer {
         this.proxy = proxy;
 
         try {
+            proxy.debug("Using address: "+proxy.getListeningIP());
             InetAddress address = InetAddress.getByName(proxy.getListeningIP());
             server = new ServerSocket(proxy.getListeningPort(), 10, address);
 
