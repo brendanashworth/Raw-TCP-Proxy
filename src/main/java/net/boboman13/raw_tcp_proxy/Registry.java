@@ -115,7 +115,9 @@ public class Registry implements Runnable {
      * Kills the Registry, this happens when either the client or server disconnects.
      */
     public void kill() {
-        if(this.socketListener != null) this.socketListener.kill();
+        if(this.socketListener != null) {
+            this.socketListener.kill();
+        }
         isRunning = false;
 
         try {
