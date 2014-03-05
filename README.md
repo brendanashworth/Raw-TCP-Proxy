@@ -5,6 +5,9 @@ Raw TCP Proxy
 
 [![Build Status](https://travis-ci.org/boboman13/Raw-TCP-Proxy.png?branch=master)](https://travis-ci.org/boboman13/Raw-TCP-Proxy)
 
+### Downloads
+The latest download can be found [here](http://boboman13.net/builds/Raw-TCP-Proxy/ "Raw TCP Proxy downloads"). They are typically kept updated.
+
 ### Compilation
 ```bash
 $ git clone https://github.com/boboman13/Raw-TCP-Proxy.git
