@@ -16,8 +16,7 @@ This provides a help screen. The usage is as follows:
 ```bash
 ./bin/proxy.pl 0.0.0.0:1357 127.0.0.1:1358
 ```
-The first argument is the listening IP / port
-The second argument is the output IP / port.
+The first argument is the listening IP / port, and the second argument is the output IP / port.
 
 If you want to access the Java .jar directly, you can access the flags at [the Main file](./src/main/java/net/boboman13/raw_tcp_proxy/main/Main.java).
 
