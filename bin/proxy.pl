@@ -10,7 +10,6 @@ use warnings;
 print("Compiling proxy... \n");
 
 `mvn package`;
-#system('mvn', 'package', '1>/dev/null');
 # Did it compile fine?
 if ( $? == -1 ) {
 	print("Compiling failed. \n");
@@ -34,5 +33,4 @@ print("Booting... \n");
 
 my @args = ('java', '-jar', 'target/Raw-TCP-Proxy-1.0-SNAPSHOT.jar', '-h', $listenhost, '-l', $listenport, '-o', $outputhost, '-p', $outputport);
 
-print(join(" ", @args) . "\n");
 system(join(' ', @args));
