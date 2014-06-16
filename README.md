@@ -11,6 +11,7 @@ The latest download can be found [here](http://boboman13.net/builds/Raw-TCP-Prox
 ### Usage
 Usage is very simple, as a Perl wrapper is provided.
 ```bash
+$ git clone https://github.com/boboman13/Raw-TCP-Proxy.git && cd Raw-TCP-Proxy
 $ ./bin/proxy.pl
 ```
 
