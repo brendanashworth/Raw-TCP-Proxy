@@ -1,38 +1,33 @@
+# Vagrant
+.vagrant
+
 # Eclipse stuff
 .classpath
 .project
 .settings/
 
-# netbeans
+# Netbeans
 nbproject/
 nbactions.xml
 
-# we use maven!
+# Maven
 build.xml
-
-# maven
 target/
 dependency-reduced-pom.xml
 
 # vim
 .*.sw[a-p]
 
-# various other potential build files
+# Various other potential build files
 build/
 dist/
 manifest.mf
 
-# Mac filesystem dust
+# Mac specifics
 .DS_Store/
 
-# intellij
+# IntelliJ
 *.iml
 *.ipr
 *.iws
 .idea/
-
-# other files
-*.log*
-
-# delombok
-*/src/main/lombok

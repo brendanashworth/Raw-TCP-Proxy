@@ -28,6 +28,13 @@ $ mvn clean package
 ```
 
 ### Contributing
+#### Pulling up a Vagrant VM
+We use Vagrant to have a standard that we can abide by.
+```bash
+$ vagrant up
+$ vagrant ssh
+```
+
 Simply fork the repository, change the local repository, then send a pull request in with the changes. The pull request will then be reviewed by the project manager/s and may or may not be accepted.
 
 The program changes must reflect the following project goals:
