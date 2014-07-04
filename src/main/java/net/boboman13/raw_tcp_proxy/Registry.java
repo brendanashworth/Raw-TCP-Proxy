@@ -120,12 +120,13 @@ public class Registry implements Runnable {
 
         try {
             if(this.outsocket != null) this.outsocket.close();
-            if(this.insocket != null) this.insocket.close();
+            if(this.insocket != null) {
+                this.insocket.close();
+                proxy.debug("Client " + insocket.getInetAddress().getHostAddress() + " has disconnected.");
+            }
         } catch (IOException ex) {
             // Do nothing.
         }
-
-        proxy.debug("Client "+insocket.getInetAddress().getHostAddress()+" has disconnected.");
     }
 
 }
