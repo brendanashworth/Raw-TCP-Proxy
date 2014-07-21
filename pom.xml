@@ -19,6 +19,8 @@
 							<mainClass>net.boboman13.raw_tcp_proxy.main.Main</mainClass>
 						</manifest>
 					</archive>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
