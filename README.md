@@ -4,6 +4,7 @@ Raw TCP Proxy
 > This is a protocol independent TCP proxy. It is compatible with **any** TCP software; such as web servers, Minecraft servers, secure shell, and much much more. It was developed to have no limitations - literally.
 
 [![Build Status](https://travis-ci.org/boboman13/Raw-TCP-Proxy.png?branch=master)](https://travis-ci.org/boboman13/Raw-TCP-Proxy)
+[![Jenkins Builds](http://img.shields.io/badge/jenkins-builds-blue.svg)](http://jenkins.boboman13.net/job/Raw-TCP-Proxy/)
 
 ### Usage
 Usage is very simple, as a Perl wrapper is provided.
